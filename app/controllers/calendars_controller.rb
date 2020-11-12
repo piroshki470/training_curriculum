@@ -34,12 +34,20 @@ class CalendarsController < ApplicationController
       plan = plans.map do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+<<<<<<< Updated upstream
       wday_num = Date.today.wday + x
       if wday_num >= 7
         wday_num = wday_num - 7
       end
       days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans, wday: wdays[wday_num]}
+=======
+      wday_num = Date.today.wday()
+      if wday_num >= 7
+        wday_num = wday_num - 7
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans, wday: @todays_date.wday }
+>>>>>>> Stashed changes
       @week_days.push(days)
+      end
     end
   end
 end
